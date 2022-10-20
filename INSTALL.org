@@ -1,11 +1,11 @@
-= How to compile PLATOtermPC with OpenWatcom on Linux
+* How to compile PLATOtermPC with OpenWatcom on Linux
 
-== Install OpenWatcom
+** Install OpenWatcom
 
  *  First install the OpenWatcom C/C++ Compiler. The instructions from
     [1] worked for me.
 
-´´´
+#+begin_example
 $ mkdir open-watcom-2 open-watcom-2/tmp
 $ R=https://github.com/open-watcom/open-watcom-v2/releases
 $ wget -O open-watcom-2/tmp/open-watcom-2.zip \
@@ -18,33 +18,33 @@ $ (cd open-watcom-2/binl && chmod +x owcc wcc wcc386 wlink)
 $ rm -rf open-watcom-2/tmp
 $ export WATCOM="$PWD/open-watcom-2"
 $ export PATH="$WATCOM/binl:$PATH" INCLUDE="$WATCOM/h"
-´´´
+#+end_example
 
 == Create the Makefile
 
- * Make the "ide2make" and "wmake" programs executable. This tool will
- convert the project (wpj) and target (tgt) files from the OpenWatcom
- IDE into a "makefile" for the OpenWatcom "wmake" tool
- 
- ´´´ 
- chmod +x $PWD/open-watcom-2/binl/ide2make 
- chmod +x $PWD/open-watcom-2/binl/wmake 
- ´´´
- 
- * Convert the IDE files. This should create the "plato.mk"  and
- "plato.mk1" files
- 
- ´´´
- $PWD/open-watcom-2/binl/ide2make -p plato.wpj plato.tgt
- ´´´
+ * Make the =ide2make= and =wmake= programs executable. This tool will
+   convert the project (wpj) and target (tgt) files from the
+   OpenWatcom IDE into a /makefile/ for the OpenWatcom =wmake= tool
+
+#+begin_example
+$ chmod +x $PWD/open-watcom-2/binl/ide2make 
+$ chmod +x $PWD/open-watcom-2/binl/wmake 
+#+end_example
+
+ * Convert the IDE files. This should create the =plato.mk= and
+   =plato.mk1= files
+
+   #+begin_example
+   $ $PWD/open-watcom-2/binl/ide2make -p plato.wpj plato.tgt
+   #+end_example
 
 == Compile PLATO.EXE
 
  * Now we can compile the PLATOtermPC source code
 
-´´´
- $PWD/open-watcom-2/binl/wmake -f plato.mk
- ´´´
+   #+begin_example
+    $PWD/open-watcom-2/binl/wmake -f plato.mk
+   #+end_example
 
 == Links
 
