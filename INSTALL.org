@@ -20,7 +20,7 @@ $ export WATCOM="$PWD/open-watcom-2"
 $ export PATH="$WATCOM/binl:$PATH" INCLUDE="$WATCOM/h"
 #+end_example
 
-== Create the Makefile
+** Create the Makefile
 
  * Make the =ide2make= and =wmake= programs executable. This tool will
    convert the project (wpj) and target (tgt) files from the
@@ -38,7 +38,7 @@ $ chmod +x $PWD/open-watcom-2/binl/wmake
    $ $PWD/open-watcom-2/binl/ide2make -p plato.wpj plato.tgt
    #+end_example
 
-== Compile PLATO.EXE
+** Compile PLATO.EXE
 
  * Now we can compile the PLATOtermPC source code
 
@@ -46,7 +46,7 @@ $ chmod +x $PWD/open-watcom-2/binl/wmake
     $PWD/open-watcom-2/binl/wmake -f plato.mk
    #+end_example
 
-== Links
+** Links
 
  * [1] How to cross-compile to various EXE files using OpenWatcom C
    compiler on Linux
